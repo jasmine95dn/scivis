@@ -1,0 +1,2 @@
+The y-scale starts at 50%. This leads to the visual impression, that the gain between the normal and sli version is greater than 2, which is wrong in all cases.
+The distance between the bottom line (50%) and 100% is as high as the distance between 100% and 150%. 

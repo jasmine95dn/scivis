@@ -1,0 +1,6 @@
+CT:
+One slice needs: 512 * 512 * 2 bytes = 524.288 bytes
+The whole dataset needs 112 * 524288 bytes = 58.720.256 bytes
+
+3D CFD:
+3 * 4 bytes + (108 * 55 * 63) * (3 * 4 bytes + 3 * 8 bytes + 8 bytes) = 16.465.692 bytes
