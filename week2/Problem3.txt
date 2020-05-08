@@ -1,0 +1,37 @@
+Problem 3:
+a)
+Curvilinear (irregular) grid:
+Advantages:
+- Regular topology
+- Topology still implicit
+- Much more flexible alternative to model arbitrarily shaped objects
+
+Disadvantages:
+- Irregular spacing between grid nodes
+- Nonlinear scaling of positions along either axis
+- Node positions have to be stored explicitly
+- Cells are rectangular
+- Geometric structure might result in concave grids
+
+b)
+Unstructured grid:
+Advantages:
+- Can be adapted to local features
+- More efficient than direct approach in terms of memory requirements
+
+Disadvantages:
+- Storage space, redundancy
+- Additionally store the data values
+- Still have to do global search to find local information 
+
+c)
+Multi-uniform grid:
+Advantages:
+- Spacing between grid nodes is constant in each dimension
+- Necessarily convex
+- Focus on specific areas to avoid unnecessary detail in other areas
+- Finter grid for regions of interest
+
+Disadvantages:
+- Difficulties in the boundary region (e.g. with interpolation)
+- Sorting of grid elements and point location more difficult
