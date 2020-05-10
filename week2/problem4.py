@@ -45,6 +45,9 @@ with PdfPages('problem4.pdf') as pdf:
 		variance = np.var(data)
 		correlation = np.correlate(data[:,0], data[:,1])[0]
 	
+		# mean point of dataset
+		mean_ = np.mean(data, axis=0)
+
 		# polynom degree, highest degree: 2
 		a,b,c = np.polyfit(data[:,0], data[:,1],2)
 		a = f'{a:.3f}'
@@ -54,6 +57,8 @@ with PdfPages('problem4.pdf') as pdf:
 	
 		plt.figure(i)	
 		plt.plot(data[:,0],data[:,1], '-o', label=rf'${a}x^2 {b}x {c}$')
+		plt.plot(*mean_, 's')
+		plt.text(*tuple(mean_+0.1), 'Mean point')
 		plt.text(*styles[i]['mean'], rf'Mean: ${mean:.3f}$', {'fontsize':14})
 		plt.text(*styles[i]['variance'], rf'Variance: ${variance:.3f}$', {'fontsize':14})
 		plt.text(*styles[i]['correlation'], rf'Correlation: ${correlation:.3f}$', {'fontsize':14})
@@ -69,6 +74,5 @@ with PdfPages('problem4.pdf') as pdf:
 	pdf.savefig()
 
 plt.show()
-#'''
-q
+
 
