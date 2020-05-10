@@ -44,14 +44,14 @@ with PdfPages('problem4.pdf') as pdf:
 		mean = np.mean(data)
 		variance = np.var(data)
 		correlation = np.correlate(data[:,0], data[:,1])[0]
-
+	
 		# polynom degree, highest degree: 2
 		a,b,c = np.polyfit(data[:,0], data[:,1],2)
 		a = f'{a:.3f}'
 		b = f'+{b:.3f}' if b >= 0.0 else f'{b:.3f}'
 		c = f'+{c:.3f}' if c >= 0.0 else f'{c:.3f}'
 
-
+	
 		plt.figure(i)	
 		plt.plot(data[:,0],data[:,1], '-o', label=rf'${a}x^2 {b}x {c}$')
 		plt.text(*styles[i]['mean'], rf'Mean: ${mean:.3f}$', {'fontsize':14})
@@ -64,11 +64,11 @@ with PdfPages('problem4.pdf') as pdf:
 	# plot all together to see the difference
 	plt.figure(len(texts)+1)
 	for i in datas:
-		plt.plot(datas[i][:,0],datas[i][:,1], '-o', label=f'Dataset {i}')
+		plt.plot(datas[i][:,0],datas[i][:,1], 'o', label=f'Dataset {i}')
 		plt.legend()
 	pdf.savefig()
 
 plt.show()
-
-
+#'''
+q
 
