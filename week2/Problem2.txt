@@ -1,0 +1,35 @@
+Problem 2:
+- height field of a country
+	Data domain: Local influence
+	Data type: Scalar
+	Range of values: Nominal
+
+- air flow around a wing of a plane
+	Data domain: Influence of samples
+	Data type: Tensor
+	Range of values: Ordinal
+	
+- temperature in a lecture room
+	Data domain: Global influence
+	Data type: Vector
+	Range of values: Metric
+	
+- dataset given in Problem 5 of Exercise Sheet 1
+	Data domain: Global influence
+	Data type: Scalar
+	Range of values: Nominal
+	
+- the data described in Problem 1 of this exercise sheet
+	Data domain: Influence of samples
+	Data type: Multivariate
+	Range of values: Nominal
+	
+- position of a car on a parking lot which ...
+	Data domain: Point influence
+	Data type: Vector
+	Range of values: Nominal
+	
+- positions of gas stations on along single road
+	Data domain: Point influence
+	Data type: Vector
+	Range of values: Ordinal
