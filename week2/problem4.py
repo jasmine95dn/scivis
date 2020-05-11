@@ -14,21 +14,21 @@ if not texts:
 	print('No datasets!')
 	sys.exit(1)
 
-styles = {1: { 'mean': (10, 7.0), 
-			   'variance': (10, 6.5), 
-			   'correlation': (10, 6.0)
+styles = {1: { 'mean': (5, 10.7), 
+			   'variance': (5, 10.2), 
+			   'correlation': (5, 9.7)
 			  }, 
-		  2: { 'mean': (9, 7.0), 
-			   'variance': (9, 6.5), 
-			   'correlation': (9, 6.0)
+		  2: { 'mean': (8, 6.5), 
+			   'variance': (8, 6.0), 
+			   'correlation': (8, 5.5)
 			  },
 		  3: { 'mean': (5, 7.5), 
 			   'variance': (5, 7.3), 
 			   'correlation': (5, 7.1)
 			  },
-		  4: { 'mean': (14, 8.5), 
-			   'variance': (14, 8.0), 
-			   'correlation': (14, 7.5)
+		  4: { 'mean': (12, 8.0), 
+			   'variance': (12, 7.5), 
+			   'correlation': (12, 7.0)
 			  },
 		}
 
@@ -41,12 +41,9 @@ with PdfPages('problem4.pdf') as pdf:
 		datas[i] = data
 
 		# calculate mean, variance, correlation
-		mean = np.mean(data)
-		variance = np.var(data)
+		mean = np.mean(data, axis=0)
+		variance = np.var(data, axis=0)
 		correlation = np.correlate(data[:,0], data[:,1])[0]
-	
-		# mean point of dataset
-		mean_ = np.mean(data, axis=0)
 
 		# polynom degree, highest degree: 2
 		a,b,c = np.polyfit(data[:,0], data[:,1],2)
@@ -57,11 +54,11 @@ with PdfPages('problem4.pdf') as pdf:
 	
 		plt.figure(i)	
 		plt.plot(data[:,0],data[:,1], '-o', label=rf'${a}x^2 {b}x {c}$')
-		plt.plot(*mean_, 's')
-		plt.text(*tuple(mean_+0.1), 'Mean point')
-		plt.text(*styles[i]['mean'], rf'Mean: ${mean:.3f}$', {'fontsize':14})
-		plt.text(*styles[i]['variance'], rf'Variance: ${variance:.3f}$', {'fontsize':14})
-		plt.text(*styles[i]['correlation'], rf'Correlation: ${correlation:.3f}$', {'fontsize':14})
+		plt.plot(*mean, 's')
+		plt.text(*tuple(mean+0.1), 'Mean point', color='r')
+		plt.text(*styles[i]['mean'], rf'X Mean: ${mean[0]:.3f}$, Y Mean: ${mean[1]:.3f}$', {'fontsize':12})
+		plt.text(*styles[i]['variance'], rf'X Variance: ${variance[0]:.3f}$, Y Variance: ${variance[1]:.3f}$', {'fontsize':12})
+		plt.text(*styles[i]['correlation'], rf'Correlation: ${correlation:.3f}$', {'fontsize':12})
 		plt.title(f'Dataset {i}', weight='bold')
 		plt.legend()
 		pdf.savefig()
